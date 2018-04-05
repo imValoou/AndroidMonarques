@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -17,9 +19,12 @@ public class QuizzActivity extends AppCompatActivity {
     private RadioButton RB1;
     private RadioButton RB2;
     private RadioButton RB3;
-    TextView Question;
-    ListQuizz lq;
+    private TextView Question;
+    private ListQuizz lq;
     private int score=0;
+
+    private Animation AnimFondu;
+    private Animation AnimReap;
 
     public static final String SCORE="Position_Score";
 
@@ -38,6 +43,11 @@ public class QuizzActivity extends AppCompatActivity {
 
         final Button button = findViewById(R.id.BQuizz);
 
+        AnimFondu = AnimationUtils.loadAnimation(this, R.anim.fondu);
+        AnimFondu.setDuration(500);
+        AnimReap = AnimationUtils.loadAnimation(this, R.anim.reap);
+        AnimReap.setDuration(500);
+
         populate();
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +59,19 @@ public class QuizzActivity extends AppCompatActivity {
                     if (count < 2) {
                         count++;
                         populate();
+                        Question.startAnimation(AnimFondu);
+                        RB1.startAnimation(AnimFondu);
+                        RB2.startAnimation(AnimFondu);
+                        RB3.startAnimation(AnimFondu);
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Question.startAnimation(AnimReap);
+                        RB1.startAnimation(AnimReap);
+                        RB2.startAnimation(AnimReap);
+                        RB3.startAnimation(AnimReap);
                     } else {
                         Intent intent = new Intent(getApplicationContext(), ResActivity.class);
                         intent.putExtra(SCORE, score);
