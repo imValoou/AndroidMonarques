@@ -1,0 +1,38 @@
+[
+  {
+    "Question":"Question1",
+    "Reponse":"Reponse1",
+    "Autre": [
+      {"String": "Rep1"},
+      {"String": "Rep2"},
+      {"String": "Rep3"},
+      {"String": "Rep4"},
+      {"String": "Rep5"},
+      {"String": "Rep6"}
+      ]
+  },
+  {
+    "Question":"Question2",
+    "Reponse":"Reponse2",
+    "Autre": [
+      {"String": "Rep1"},
+      {"String": "Rep2"},
+      {"String": "Rep3"},
+      {"String": "Rep4"},
+      {"String": "Rep5"},
+      {"String": "Rep6"}
+    ]
+  },
+  {
+    "Question":"Question3",
+    "Reponse":"Reponse3",
+    "Autre": [
+      {"String": "Rep1"},
+      {"String": "Rep2"},
+      {"String": "Rep3"},
+      {"String": "Rep4"},
+      {"String": "Rep5"},
+      {"String": "Rep6"}
+    ]
+  }
+]
